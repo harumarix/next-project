@@ -1,4 +1,6 @@
 import { Router, useRouter } from "next/router";
+import { Fragment } from "react";
+import Head from "next/head";
 import NewPhotoForm from "../../components/photos/NewPhotoForm";
 
 const NewPhotoPage = () => {
@@ -14,6 +16,17 @@ const NewPhotoPage = () => {
 
     Router.push("/");
   }
-  return <NewPhotoForm onAddPhoto={addPhotoHandler} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>Add a New Photo</title>
+        <meta
+          name="description"
+          content="Add your own photos and create amazing networking opportunities."
+        />
+      </Head>
+      <NewPhotoForm onAddPhoto={addPhotoHandler} />;
+    </Fragment>
+  );
 };
 export default NewPhotoPage;
