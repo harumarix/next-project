@@ -1,8 +1,21 @@
 import { MongoClient } from "mongodb";
+import Head from "next/head";
+import { Fragment } from "react";
 import PhotoList from "../components/photos/PhotoList";
 
 const HomePage = (props) => {
-  return <PhotoList photos={props.photos} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>Amals Photos</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React photos!"
+        />
+      </Head>
+      <PhotoList photos={props.photos} />;
+    </Fragment>
+  );
 };
 
 export async function getStaticProps() {

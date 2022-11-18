@@ -1,15 +1,23 @@
 import { MongoClient, ObjectId } from "mongodb";
+import Head from "next/head";
+import { Fragment } from "react";
 import PhotoDetails from "../../components/photos/PhotoDetails";
 
 function PhotoDetailsPage(props) {
   console.log(props.photoData);
   return (
-    <PhotoDetails
-      image={props.photoData.image}
-      title={props.photoData.title}
-      address={props.photoData.address}
-      description={props.photoData.description}
-    />
+    <Fragment>
+      <Head>
+        <title>{props.photoData.title}</title>
+        <meta name="description" content={props.photoData.description} />
+      </Head>
+      <PhotoDetails
+        image={props.photoData.image}
+        title={props.photoData.title}
+        address={props.photoData.address}
+        description={props.photoData.description}
+      />
+    </Fragment>
   );
 }
 
